@@ -7,14 +7,12 @@ import { fullTicketCount } from "./FullTicketHolders.js"
 const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
-// display Total ticket purchased
-// Regenerate HTML state changed
-document.addEventListener("stateChanged", event => {
+// display Total ticket purchased (re-count every time stateChanged(a ticket was bought))
+document.addEventListener("stateChanged", () => {
     const totalTicket = rideTicketCount + foodTicketCount + gamesTicketCount + sideshowTicketCount + fullTicketCount
     document.querySelector(".customers").innerHTML = `Total ticket purchased: ${totalTicket}`
     
 })
-
 
 // display booth ticket button
 export const TicketBooth = () => {
